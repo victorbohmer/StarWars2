@@ -85,8 +85,8 @@ namespace StarWars2.Controllers
             {
                 return NotFound();
             }
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id", star.StarSystemId);
-            ViewData["StarTypeId"] = new SelectList(_context.StarType, "Id", "Id", star.StarTypeId);
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name", star.StarSystemId);
+            ViewData["StarType"] = new SelectList(_context.StarType, "Id", "Name", star.StarTypeId);
             return View(star);
         }
 

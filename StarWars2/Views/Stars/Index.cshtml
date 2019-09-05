@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.StarSystem)
+                Star System
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StarType)
+                Star Type
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th></th>
         </tr>
@@ -28,10 +28,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.StarSystem.Id)
+                @Html.DisplayFor(modelItem => item.StarSystem.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StarType.Id)
+                @Html.DisplayFor(modelItem => item.StarType.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
