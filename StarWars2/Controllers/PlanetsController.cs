@@ -49,8 +49,8 @@ namespace StarWars2.Controllers
         // GET: Planets/Create
         public IActionResult Create()
         {
-            ViewData["PlanetTypeId"] = new SelectList(_context.Set<PlanetType>(), "Id", "Id");
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id");
+            ViewData["PlanetType"] = new SelectList(_context.Set<PlanetType>(), "Id", "Name");
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace StarWars2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlanetTypeId"] = new SelectList(_context.Set<PlanetType>(), "Id", "Id", planet.PlanetTypeId);
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id", planet.StarSystemId);
+            ViewData["PlanetType"] = new SelectList(_context.Set<PlanetType>(), "Id", "Name", planet.PlanetTypeId);
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name", planet.StarSystemId);
             return View(planet);
         }
 
@@ -85,8 +85,8 @@ namespace StarWars2.Controllers
             {
                 return NotFound();
             }
-            ViewData["PlanetTypeId"] = new SelectList(_context.Set<PlanetType>(), "Id", "Id", planet.PlanetTypeId);
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id", planet.StarSystemId);
+            ViewData["PlanetType"] = new SelectList(_context.Set<PlanetType>(), "Id", "Name", planet.PlanetTypeId);
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name", planet.StarSystemId);
             return View(planet);
         }
 
@@ -122,8 +122,8 @@ namespace StarWars2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["PlanetTypeId"] = new SelectList(_context.Set<PlanetType>(), "Id", "Id", planet.PlanetTypeId);
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id", planet.StarSystemId);
+            ViewData["PlanetType"] = new SelectList(_context.Set<PlanetType>(), "Id", "Name", planet.PlanetTypeId);
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name", planet.StarSystemId);
             return View(planet);
         }
 
