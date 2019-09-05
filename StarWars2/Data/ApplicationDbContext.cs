@@ -13,6 +13,13 @@ namespace StarWars2.Data
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<StarSystem>().HasIndex(u => new { u.XCoordinate, u.YCoordinate})
+        .IsUnique();
+        }
         public DbSet<StarWars2.Models.StarType> StarType { get; set; }
         public DbSet<StarWars2.Models.StarSystem> StarSystem { get; set; }
         public DbSet<StarWars2.Models.Star> Star { get; set; }

@@ -10,6 +10,7 @@ namespace StarWars2.Models
         public int Id { get; set; }
         public List<Star> Stars { get; set; }
         public string Name { get; set; }
+
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
     }
