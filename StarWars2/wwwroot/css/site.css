@@ -48,6 +48,10 @@ body {
 .DisplayGrid {
     padding: 0px;
     margin: 0px;
+    background-color: black;
+}
+img {
+    width: 200px; height: 200px;
 }
 .footer {
     position: absolute;
