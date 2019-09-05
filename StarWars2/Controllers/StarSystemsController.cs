@@ -34,7 +34,7 @@ namespace StarWars2.Controllers
             }
 
             var starSystem = await _context.StarSystem
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .Include(x => x.Stars).ThenInclude(x => x.StarType).Include(x => x.Planet).FirstOrDefaultAsync(m => m.Id == id);
             if (starSystem == null)
             {
                 return NotFound();
@@ -46,6 +46,7 @@ namespace StarWars2.Controllers
         // GET: StarSystems/Create
         public IActionResult Create()
         {
+            ViewData["Star"] = new SelectList(_context.StarSystem.Include(x => x.Stars), "Id", "Name");
             return View();
         }
 
@@ -54,7 +55,7 @@ namespace StarWars2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,XCoordinate,YCoordinate")] StarSystem starSystem)
+        public async Task<IActionResult> Create([Bind("Id,Name,XCoordinate,YCoordinate,stars")] StarSystem starSystem)
         {
             if (ModelState.IsValid)
             {

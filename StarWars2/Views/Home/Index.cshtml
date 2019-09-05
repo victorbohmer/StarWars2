@@ -35,7 +35,9 @@
                 }
                 else
                 {
-                    <img onclick="" src='@currentSystem.Stars[0].StarType.ImageSource' />
+                    <a asp-area="" asp-controller="StarSystems" asp-action="Details" asp-route-id="@currentSystem.Id">
+                        <img src='@currentSystem.Stars[0].StarType.ImageSource' />
+                    </a>
                 }
             </td>
             }

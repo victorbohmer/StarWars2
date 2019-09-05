@@ -31,36 +31,38 @@
         </dl>
     </div>
     <div>*@
-@*@if (Model.Count() > 0)
+
+@*@if (Model.Planet.Count() > 0)
 {
-    maxXCoordinate = Model.Max(s => s.XCoordinate) + 2;
-    maxYCoordinate = Model.Max(s => s.YCoordinate) + 2;
-}
+    maxPlanets = 
+}*@
 
 
 <table class="DisplayGrid">
-    @for (int y = 0; y < maxYCoordinate; y++)
-    {
-        <tr>
-            @for (int x = 0; x < maxXCoordinate; x++)
-            {
-                <td>
-                    @{ StarSystem currentSystem = Model.SingleOrDefault(s => s.YCoordinate == y && s.XCoordinate == x);}
-                    @if (currentSystem == null || currentSystem.Stars.Count == 0)
-                    {
-                        <img src="/img/stars/emptySpace.png" />
-                    }
-                    else
-                    {
-                        <img onclick="" src='@currentSystem.Stars[0].StarType.ImageSource' />
-                    }
-                </td>
-            }
-        </tr>
-    }
+    
+   <tr>
+       <td>
+           <img src='@Model.Stars[0].StarType.ImageSource' />
+       </td>
+
+       @for (int x = 0; x < Model.Planet.Count(); x++)
+       {
+           <td>
+               @if (Model.Planet == null || Model.Planet.Count == 0)
+               {
+                   <img src="/img/stars/emptySpace.png" />
+               }
+               else
+               {
+                   <img onclick="" src='@Model.Planet[x].PlanetType.ImageSource' />
+               }
+           </td>
+       }
+   </tr>
+    
 
 
 
 
 
-</table>*@
+</table>
