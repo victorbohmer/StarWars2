@@ -23,5 +23,7 @@ namespace StarWars2.Data
         public DbSet<StarWars2.Models.StarType> StarType { get; set; }
         public DbSet<StarWars2.Models.StarSystem> StarSystem { get; set; }
         public DbSet<StarWars2.Models.Star> Star { get; set; }
+        public DbSet<StarWars2.Models.Planet> Planet { get; set; }
+        public DbSet<StarWars2.Models.PlanetType> PlanetType { get; set; }
     }
 }
