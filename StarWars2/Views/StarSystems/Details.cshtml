@@ -48,14 +48,7 @@
        @for (int x = 0; x < Model.Planet.Count(); x++)
        {
            <td>
-               @if (Model.Planet == null || Model.Planet.Count == 0)
-               {
-                   <img src="/img/stars/emptySpace.png" />
-               }
-               else
-               {
-                   <img onclick="" src='@Model.Planet[x].PlanetType.ImageSource' />
-               }
+               <img src='@Model.Planet[x].PlanetType.ImageSource' />               
            </td>
        }
    </tr>
