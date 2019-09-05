@@ -49,8 +49,8 @@ namespace StarWars2.Controllers
         // GET: Stars/Create
         public IActionResult Create()
         {
-            ViewData["StarSystemId"] = new SelectList(_context.StarSystem, "Id", "Id");
-            ViewData["StarTypeId"] = new SelectList(_context.StarType, "Id", "Id");
+            ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name");
+            ViewData["StarType"] = new SelectList(_context.StarType, "Id", "Name");
             return View();
         }
 
