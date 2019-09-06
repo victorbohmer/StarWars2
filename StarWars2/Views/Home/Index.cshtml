@@ -3,50 +3,51 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+    <body class="StarSystemDetail">
 
-    <div>
-        <a asp-action="SeedDataBase" >Seed Planets</a>
-    </div>
+        <div>
+            <a asp-action="SeedDataBase">Seed Planets</a>
+        </div>
 
-@{ 
-    int maxXCoordinate = 0;
-    int maxYCoordinate = 0;
-}
+        @{
+            int maxXCoordinate = 0;
+            int maxYCoordinate = 0;
+        }
 
-@if (Model.Count() > 0)
-{
-    maxXCoordinate = Model.Max(s => s.XCoordinate) + 2;
-    maxYCoordinate = Model.Max(s => s.YCoordinate) + 2;
-}
+        @if (Model.Count() > 0)
+        {
+            maxXCoordinate = Model.Max(s => s.XCoordinate) + 2;
+            maxYCoordinate = Model.Max(s => s.YCoordinate) + 2;
+        }
 
 
-<table class="DisplayGrid">
-    @for (int y = 0; y < maxYCoordinate; y++)
-    {
-        <tr>
-            @for (int x = 0; x < maxXCoordinate; x++)
+        <table class="DisplayGrid">
+            @for (int y = 0; y < maxYCoordinate; y++)
             {
-            <td>
-                @{ StarSystem currentSystem = Model.SingleOrDefault(s => s.YCoordinate == y && s.XCoordinate == x);}
-                @if (currentSystem == null || currentSystem.Stars.Count == 0)
-                {
-                    <img src="/img/stars/emptySpace.png" />
-                }
-                else
-                {
-                    <a asp-area="" asp-controller="StarSystems" asp-action="Details" asp-route-id="@currentSystem.Id">
-                        <img src='@currentSystem.Stars[0].StarType.ImageSource' />
-                    </a>
-                }
-            </td>
+                <tr>
+                    @for (int x = 0; x < maxXCoordinate; x++)
+                    {
+                        <td>
+                            @{ StarSystem currentSystem = Model.SingleOrDefault(s => s.YCoordinate == y && s.XCoordinate == x);}
+                            @if (currentSystem == null || currentSystem.Stars.Count == 0)
+                            {
+                                <img src="/img/stars/emptySpace.png" />
+                            }
+                            else
+                            {
+                                <a asp-area="" asp-controller="StarSystems" asp-action="Details" asp-route-id="@currentSystem.Id">
+                                    <img src='@currentSystem.Stars[0].StarType.ImageSource' />
+                                </a>
+                            }
+                        </td>
+                    }
+                </tr>
             }
-        </tr>
-    }
 
 
 
 
 
-</table>
-
+        </table>
+    </body>
 
