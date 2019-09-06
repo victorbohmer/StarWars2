@@ -34,7 +34,7 @@ namespace StarWars2.Controllers
             }
 
             var starSystem = await _context.StarSystem
-                .Include(x => x.Stars).ThenInclude(x => x.StarType).Include(x => x.Planet).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(x => x.Stars).ThenInclude(x => x.StarType).Include(x => x.Planet).ThenInclude(x => x.PlanetType).FirstOrDefaultAsync(m => m.Id == id);
             if (starSystem == null)
             {
                 return NotFound();

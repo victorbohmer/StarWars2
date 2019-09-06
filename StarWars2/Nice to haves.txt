@@ -1,0 +1,11 @@
+Möjliga vidareutvecklingar:
+
+Namn på system/stjärnor/planeter visas vid mouseover
+
+Beskrivningstext för planeter och stjärnor
+
+Rymdskepp!
+
+Möjlighet för inloggad användare att välja sitt rymdskepp som sedan sparas
+
+
