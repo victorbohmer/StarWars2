@@ -25,6 +25,12 @@ namespace StarWars2.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public IActionResult SeedDataBase()
+        {
+            DbInitializer.Seed(_context);
+            return View("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();
