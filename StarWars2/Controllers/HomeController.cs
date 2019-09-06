@@ -28,7 +28,7 @@ namespace StarWars2.Controllers
         public IActionResult SeedDataBase()
         {
             DbInitializer.Seed(_context);
-            return View("Index");
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Privacy()
