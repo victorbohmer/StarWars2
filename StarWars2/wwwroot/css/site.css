@@ -45,6 +45,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+.StarSystemDetail {
+    background-color: black;
+    background-image: url("/img/backgrounds/spacebackground.jpg");
+}
 .DisplayGrid {
     padding: 0px;
     margin: 0px;

@@ -37,25 +37,28 @@
     maxPlanets = 
 }*@
 
+    <body class="StarSystemDetail">
 
-<table class="DisplayGrid">
-    
-   <tr>
-       <td>
-           <img src='@Model.Stars[0].StarType.ImageSource' />
-       </td>
+        <table class="DisplayGrid">
 
-       @for (int x = 0; x < Model.Planet.Count(); x++)
-       {
-           <td>
-               <img src='@Model.Planet[x].PlanetType.ImageSource' />               
-           </td>
-       }
-   </tr>
-    
+            <tr>
+                <td>
+                    <img src='@Model.Stars[0].StarType.ImageSource' title="@Model.Stars[0].Name" />
+                </td>
 
-
+                @for (int x = 0; x < Model.Planet.Count(); x++)
+                {
+                    <td>
+                        <img  src='@Model.Planet[x].PlanetType.ImageSource' title="@Model.Planet[x].PlanetType.Name"/>
+                    </td>
+                }
+            </tr>
 
 
 
-</table>
+
+
+
+        </table>
+
+    </body>
