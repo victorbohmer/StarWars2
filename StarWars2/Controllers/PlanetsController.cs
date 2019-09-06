@@ -49,7 +49,7 @@ namespace StarWars2.Controllers
         // GET: Planets/Create
         public IActionResult Create()
         {
-            ViewData["PlanetType"] = new SelectList(_context.Set<PlanetType>(), "Id", "Name");
+            ViewData["PlanetType"] = new SelectList(_context.PlanetType, "Id", "Name");
             ViewData["StarSystem"] = new SelectList(_context.StarSystem, "Id", "Name");
             return View();
         }
